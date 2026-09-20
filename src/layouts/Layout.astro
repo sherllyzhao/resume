@@ -1,0 +1,61 @@
+---
+interface Props {
+  title: string;
+  description: string;
+}
+const { title, description } = Astro.props;
+const photo = `${import.meta.env.BASE_URL}/photo.jpg`;
+---
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(photo, Astro.site)} />
+    <link rel="icon" href={`${import.meta.env.BASE_URL}/favicon.svg`} type="image/svg+xml" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --accent: #1f4e79;
+    --accent-light: #e8eff7;
+    --text: #2b2f36;
+    --muted: #6b7280;
+    --line: #e2e6ec;
+    --bg: #f3f5f8;
+    --card: #ffffff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Helvetica Neue", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  ul { list-style: none; }
+  .container { max-width: 900px; margin: 0 auto; padding: 32px 20px 64px; }
+  .card { background: var(--card); border-radius: 12px; box-shadow: 0 1px 3px rgba(16, 24, 40, .06), 0 8px 24px rgba(16, 24, 40, .05); }
+  .bul li { position: relative; padding-left: 16px; margin-bottom: 6px; }
+  .bul li::before { content: ""; position: absolute; left: 2px; top: 11px; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+
+  @media print {
+    body { background: #fff; font-size: 11pt; }
+    .container { max-width: none; padding: 0; }
+    .card { box-shadow: none; border-radius: 0; }
+    .no-print { display: none !important; }
+    a { color: inherit; }
+  }
+</style>

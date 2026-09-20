@@ -1,0 +1,18 @@
+---
+interface Props {
+  id: string;
+  title: string;
+}
+const { id, title } = Astro.props;
+---
+<section class="card section" id={id}>
+  <h2>{title}</h2>
+  <slot />
+</section>
+
+<style>
+  .section { padding: 24px 32px; margin-top: 20px; }
+  h2 { font-size: 19px; color: var(--accent); letter-spacing: 1px; padding-left: 12px; border-left: 4px solid var(--accent); line-height: 1.2; margin-bottom: 16px; }
+  @media (max-width: 640px) { .section { padding: 20px; } }
+  @media print { .section { margin-top: 12pt; padding: 0; } }
+</style>

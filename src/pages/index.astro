@@ -1,0 +1,50 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Section from '../components/Section.astro';
+import JobItem from '../components/JobItem.astro';
+import ProjectItem from '../components/ProjectItem.astro';
+import { profile, skills, tags, jobs, projects, evaluation } from '../data/resume';
+
+const title = `${profile.name} - ${profile.title}`;
+const description = `${profile.name}，${profile.title}，${profile.target}。精通 Vue 全家桶、ECharts 数据大屏、Electron 桌面端与 uni-app 小程序开发。`;
+---
+<Layout title={title} description={description}>
+  <main class="container">
+    <Header />
+
+    <Section id="skills" title="专业技能">
+      <ul class="tags">
+        {tags.map((t) => <li>{t}</li>)}
+      </ul>
+      <ul class="bul skills">
+        {skills.map((s) => <li><b>{s.label}：</b>{s.text}</li>)}
+      </ul>
+    </Section>
+
+    <Section id="experience" title="工作经历">
+      {jobs.map((job) => <JobItem job={job} />)}
+    </Section>
+
+    <Section id="projects" title="项目经历">
+      {projects.map((p) => <ProjectItem project={p} />)}
+    </Section>
+
+    <Section id="about" title="自我评价">
+      <ul class="bul">
+        {evaluation.map((e) => <li>{e}</li>)}
+      </ul>
+    </Section>
+
+    <footer class="footer no-print">
+      © {new Date().getFullYear()} {profile.name} · 本站基于 Astro 构建，托管于 GitHub Pages
+    </footer>
+  </main>
+</Layout>
+
+<style>
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+  .tags li { background: var(--accent-light); color: var(--accent); font-size: 13px; padding: 2px 10px; border-radius: 999px; line-height: 22px; }
+  .skills b { color: #111; }
+  .footer { text-align: center; color: var(--muted); font-size: 13px; margin-top: 32px; }
+</style>

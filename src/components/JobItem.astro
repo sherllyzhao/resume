@@ -1,0 +1,28 @@
+---
+import type { Job } from '../data/resume';
+interface Props { job: Job }
+const { job } = Astro.props;
+---
+<article class="job">
+  <div class="head">
+    <div>
+      <span class="co">{job.company}</span>
+      <span class="role">{job.role}</span>
+    </div>
+    <span class="time">{job.period}</span>
+  </div>
+  <p class="desc">{job.desc}</p>
+  <ul class="bul">
+    {job.bullets.map((b) => <li>{b}</li>)}
+  </ul>
+</article>
+
+<style>
+  .job { margin-bottom: 20px; break-inside: avoid; }
+  .job:last-child { margin-bottom: 0; }
+  .head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  .co { font-weight: 700; font-size: 16px; color: #111; }
+  .role { color: var(--accent); font-weight: 600; margin-left: 10px; font-size: 14px; }
+  .time { color: var(--muted); font-size: 14px; white-space: nowrap; }
+  .desc { color: var(--muted); font-size: 14px; margin: 2px 0 6px; }
+</style>

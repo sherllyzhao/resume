@@ -1,0 +1,45 @@
+---
+import { profile } from '../data/resume';
+const base = import.meta.env.BASE_URL;
+---
+<header class="card header">
+  <img class="photo" src={`${base}/photo.jpg`} alt={`${profile.name}证件照`} width="104" height="130" />
+  <div class="info">
+    <h1>{profile.name}</h1>
+    <p class="title">{profile.title}</p>
+    <ul class="meta">
+      <li><a href={`tel:${profile.phone}`}>{profile.phone}</a></li>
+      <li><a href={`mailto:${profile.email}`}>{profile.email}</a></li>
+      <li>{profile.location}</li>
+      <li><a href={profile.github} target="_blank" rel="noopener">github.com/sherllyzhao</a></li>
+    </ul>
+    <p class="edu">{profile.education}</p>
+  </div>
+  <div class="actions no-print">
+    <a class="btn primary" href={`${base}/resume.pdf`} download="赵雪丽-前端开发-7年.pdf">下载 PDF</a>
+    <button class="btn" type="button" onclick="window.print()">打印</button>
+  </div>
+</header>
+
+<style>
+  .header { display: flex; gap: 24px; padding: 28px 32px; align-items: center; border-top: 4px solid var(--accent); }
+  .photo { width: 104px; height: 130px; object-fit: cover; border-radius: 6px; border: 1px solid var(--line); flex-shrink: 0; }
+  .info { flex: 1; min-width: 0; }
+  h1 { font-size: 30px; letter-spacing: 3px; color: #111; line-height: 1.2; }
+  .title { color: var(--accent); font-weight: 600; font-size: 16px; margin-top: 4px; }
+  .meta { display: flex; flex-wrap: wrap; gap: 4px 20px; margin-top: 10px; font-size: 14px; color: #3f4650; }
+  .meta li::before { content: ""; display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); margin-right: 6px; vertical-align: 3px; }
+  .edu { margin-top: 6px; font-size: 14px; color: var(--muted); }
+  .actions { display: flex; flex-direction: column; gap: 10px; flex-shrink: 0; }
+  .btn { display: inline-block; padding: 8px 18px; border-radius: 6px; border: 1px solid var(--accent); color: var(--accent); background: #fff; font-size: 14px; cursor: pointer; text-align: center; white-space: nowrap; font-family: inherit; }
+  .btn:hover { background: var(--accent-light); text-decoration: none; }
+  .btn.primary { background: var(--accent); color: #fff; }
+  .btn.primary:hover { background: #173d5f; }
+
+  @media (max-width: 640px) {
+    .header { flex-direction: column; align-items: flex-start; padding: 24px 20px; }
+    .actions { flex-direction: row; width: 100%; }
+    .btn { flex: 1; }
+    h1 { font-size: 26px; }
+  }
+</style>

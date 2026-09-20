@@ -1,0 +1,39 @@
+---
+import type { Project } from '../data/resume';
+interface Props { project: Project }
+const { project } = Astro.props;
+---
+<article class="proj">
+  <div class="head">
+    <span class="pn">{project.name}</span>
+    <span class="pr">{project.meta}</span>
+  </div>
+  {project.desc && (
+    <div class="row"><span class="k">项目描述</span><span class="v">{project.desc}</span></div>
+  )}
+  {project.stack && (
+    <div class="row"><span class="k">技术栈</span><span class="v stack">{project.stack}</span></div>
+  )}
+  <div class="row">
+    <span class="k">职责产出</span>
+    <ul class="bul v">
+      {project.bullets.map((b) => <li>{b}</li>)}
+    </ul>
+  </div>
+</article>
+
+<style>
+  .proj { margin-bottom: 22px; break-inside: avoid; }
+  .proj:last-child { margin-bottom: 0; }
+  .head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; border-bottom: 1px dashed var(--line); padding-bottom: 6px; margin-bottom: 8px; }
+  .pn { font-weight: 700; font-size: 16px; color: #111; }
+  .pr { color: var(--muted); font-size: 14px; white-space: nowrap; }
+  .row { display: flex; gap: 12px; margin-bottom: 4px; }
+  .k { flex: 0 0 64px; color: var(--accent); font-weight: 600; }
+  .v { flex: 1; min-width: 0; }
+  .stack { color: #3f4650; }
+  @media (max-width: 640px) {
+    .row { flex-direction: column; gap: 2px; }
+    .k { flex: none; }
+  }
+</style>

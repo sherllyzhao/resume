@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>赵雪丽 - 前端开发工程师 - 7年经验</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #fff; }
+  body {
+    font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", "Helvetica Neue", Arial, sans-serif;
+    font-size: 10.5pt;
+    line-height: 1.55;
+    color: #2b2f36;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page { width: 210mm; margin: 0 auto; padding: 12mm 14mm 12mm 14mm; }
+  @media screen { body { background: #eef0f3; } .page { background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,.12); margin: 16px auto; } }
+
+  :root { --accent: #1f4e79; --accent-light: #e8eff7; --muted: #6b7280; --line: #d9dee5; }
+
+  /* header */
+  .header { display: flex; align-items: center; gap: 8mm; padding-bottom: 5mm; border-bottom: 2px solid var(--accent); }
+  .header .info { flex: 1; }
+  .header .name { font-size: 22pt; font-weight: 700; letter-spacing: 2px; color: #111; line-height: 1.2; }
+  .header .title { font-size: 12pt; color: var(--accent); font-weight: 600; margin-top: 1.5mm; }
+  .header .meta { margin-top: 2.5mm; color: #3f4650; font-size: 9.5pt; display: flex; flex-wrap: wrap; gap: 1mm 5mm; }
+  .header .meta span::before { content: ""; display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); margin-right: 5px; vertical-align: 2px; }
+  .header .photo { width: 26mm; height: 33mm; object-fit: cover; border-radius: 3px; border: 1px solid var(--line); }
+
+  /* sections */
+  section { margin-top: 4.5mm; }
+  h2 { font-size: 12.5pt; color: var(--accent); font-weight: 700; letter-spacing: 1px; padding-left: 8px; border-left: 4px solid var(--accent); line-height: 1.2; margin-bottom: 2.5mm; }
+
+  /* skills */
+  .skills li { list-style: none; padding-left: 12px; position: relative; margin-bottom: 1mm; }
+  .skills li::before { content: ""; position: absolute; left: 0; top: 7px; width: 5px; height: 5px; background: var(--accent); border-radius: 50%; }
+  .skills b { color: #111; }
+  .tag { display: inline-block; background: var(--accent-light); color: var(--accent); font-size: 8.5pt; padding: 0 5px; border-radius: 3px; margin-right: 3px; line-height: 16px; vertical-align: 1px; }
+
+  /* work */
+  .job { margin-bottom: 3mm; page-break-inside: avoid; }
+  .job-head { display: flex; justify-content: space-between; align-items: baseline; }
+  .job-head .co { font-weight: 700; font-size: 11pt; color: #111; }
+  .job-head .role { color: var(--accent); font-weight: 600; margin-left: 8px; font-size: 10pt; }
+  .job-head .time { color: var(--muted); font-size: 9.5pt; white-space: nowrap; }
+  .job .desc { color: var(--muted); font-size: 9.5pt; margin: 0.5mm 0 1mm; }
+  ul.bul li { list-style: none; padding-left: 12px; position: relative; margin-bottom: 0.8mm; }
+  ul.bul li::before { content: "•"; position: absolute; left: 1px; top: 0; color: var(--accent); }
+
+  /* projects */
+  .proj { margin-bottom: 3.2mm; page-break-inside: avoid; }
+  .proj-head { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px dashed var(--line); padding-bottom: 0.8mm; margin-bottom: 1mm; }
+  .proj-head .pn { font-weight: 700; font-size: 11pt; color: #111; }
+  .proj-head .pr { color: var(--muted); font-size: 9.5pt; white-space: nowrap; }
+  .proj .row { display: flex; margin-bottom: 0.6mm; }
+  .proj .row .k { flex: 0 0 52px; color: var(--accent); font-weight: 600; }
+  .proj .row .v { flex: 1; }
+  .proj .row .v.stack { color: #3f4650; }
+  .proj ul.bul { margin-left: 52px; }
+
+  /* eval */
+  .eval li { list-style: none; padding-left: 12px; position: relative; margin-bottom: 1mm; }
+  .eval li::before { content: ""; position: absolute; left: 0; top: 7px; width: 5px; height: 5px; background: var(--accent); border-radius: 50%; }
+
+  .pb { page-break-before: always; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="header">
+    <div class="info">
+      <div class="name">赵雪丽</div>
+      <div class="title">前端开发工程师 · 7 年经验</div>
+      <div class="meta">
+        <span>15333030204</span>
+        <span>z1253108690@126.com</span>
+        <span>太原</span>
+        <span>山西省财政税务专科学校 · 电子商务技术 · 大专</span>
+      </div>
+    </div>
+    <img class="photo" src="photo.png" alt="证件照">
+  </header>
+
+  <section>
+    <h2>专业技能</h2>
+    <ul class="skills">
+      <li><b>前端框架：</b>熟练使用 Vue 全家桶（Vue Router / Vuex / Axios），熟悉组件化开发与前后端分离模式，可独立完成中后台系统从 0 到 1 搭建。</li>
+      <li><b>UI 组件库：</b>熟练使用 Element UI、Ant Design Vue，能基于组件库二次封装业务组件，在多套 UI 体系下保持交互一致。</li>
+      <li><b>数据可视化：</b>熟练使用 ECharts，具备政府级数据大屏经验（省级地图下钻、多图表联动、报表模板打印）。</li>
+      <li><b>移动端 / 小程序：</b>熟悉 uni-app 与微信小程序开发，熟悉 H5 与原生 App 混合开发及双向交互（打卡、文件上传 / 预览）。</li>
+      <li><b>桌面端：</b>熟悉 Electron 桌面应用开发，有多窗口通信、Session 持久化、脚本注入、exe / dmg 双平台打包经验。</li>
+      <li><b>基础功底：</b>熟练掌握 HTML5、CSS3、SCSS、JavaScript（ES6+）、jQuery，可高保真还原设计稿并完成响应式适配。</li>
+      <li><b>工程化：</b>熟悉 Git 协作、Vue CLI / Vite 构建；了解 Cloudflare Workers（Serverless）、GitHub Actions 自动化部署。</li>
+      <li><b>拓展能力：</b>了解 React、Astro、TypeScript；熟练运用 AI 编程助手（如 Claude Code）进行方案调研、编码与测试，显著提升交付效率。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>工作经历</h2>
+
+    <div class="job">
+      <div class="job-head">
+        <div><span class="co">山西资海科技开发有限公司</span><span class="role">前端开发工程师</span></div>
+        <div class="time">2021.06 – 至今</div>
+      </div>
+      <div class="desc">龙采科技旗下子公司，研发公司自用 SaaS 产品线。</div>
+      <ul class="bul">
+        <li>负责多条产品线前端开发，覆盖中后台管理系统、数据大屏、官网 / 落地页、H5、小程序及 Electron 桌面端，累计参与 10+ 个项目（官网、视频管家、云名片、抢单平台、员工端、AIGC、建站通及其插件等）。</li>
+        <li>独立负责视频管家、抢单平台（客资端 / 员工端 / 大屏）、自动发布媒体工具等项目的前端全流程：需求沟通 → 设计稿还原 → 接口联调 → 上线维护。</li>
+        <li>主导 Electron 自动发布媒体工具从 0 到 1 落地，打通抖音、小红书、视频号等 9 个内容平台的自动授权与发布。</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div><span class="co">山西硬汉网络科技有限公司</span><span class="role">前端开发工程师</span></div>
+        <div class="time">2019.05 – 2021.05</div>
+      </div>
+      <div class="desc">优逸客旗下子公司，主要承接政府及公安信息化项目。</div>
+      <ul class="bul">
+        <li>参与山西省公安厅、太原市公安局、太原市政法委等多个政府级项目前端开发：警情报表系统、情指大数据实战一体化平台、110 指挥中心警情数据可视化平台、政法干部信息管理系统、12110 数据接口系统。</li>
+        <li>负责大屏可视化与数据统计分析模块，基于 ECharts 实现山西省地图下钻、多维度图表及报表打印。</li>
+        <li>完成硬汉官网、狮子座公考官网、优逸客官网等企业官网的前端开发。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>项目经历</h2>
+
+    <div class="proj">
+      <div class="proj-head"><span class="pn">抢单平台（客资端 / 员工端 / 数据大屏）</span><span class="pr">山西资海 · 前端开发（独立负责）</span></div>
+      <div class="row"><span class="k">项目描述</span><span class="v">面向客资与员工的任务派发与验收系统：客资端下发项目与任务，员工端项目经理拆分派单、员工认领执行、逐级提交验收，数据大屏实时展示任务全貌。</span></div>
+      <div class="row"><span class="k">技术栈</span><span class="v stack">Vue、Element UI（客资端）、Ant Design Vue（员工端）、ECharts + HTML（大屏）、SCSS、Axios</span></div>
+      <div class="row"><span class="k">职责产出</span><span class="v"></span></div>
+      <ul class="bul">
+        <li>独立完成客资端、员工端、数据大屏三端前端开发与接口联调。</li>
+        <li>实现任务下发 → 认领 → 提交 → 逐级验收的完整状态流转与多角色权限控制。</li>
+        <li>基于 ECharts 搭建数据大屏，实时展示任务分布与完成情况。</li>
+      </ul>
+    </div>
+
+    <div class="proj">
+      <div class="proj-head"><span class="pn">太原市公安局情指大数据实战一体化平台</span><span class="pr">山西硬汉 · 前端开发</span></div>
+      <div class="row"><span class="k">项目描述</span><span class="v">面向辖区警情全貌的可视化分析与执勤管理平台，涵盖警情研判、报表处理、执勤信息 / 调度 / 考核、接处警工作量考核及全流程执法办案数据可视化。</span></div>
+      <div class="row"><span class="k">技术栈</span><span class="v stack">Vue、Element UI、ECharts、SCSS、Axios</span></div>
+      <div class="row"><span class="k">职责产出</span><span class="v"></span></div>
+      <ul class="bul">
+        <li>负责大屏可视化界面开发，基于 ECharts 实现山西省地图逐级下钻及多类型图表联动。</li>
+        <li>独立负责警情研判、警情统计分析两个子系统：列表渲染、多条件筛选与动态数据展示。</li>
+        <li>实现数据动态填充至表格与文档模板，完成文档 / 报表打印功能。</li>
+      </ul>
+    </div>
+
+    <div class="proj">
+      <div class="proj-head"><span class="pn">自动发布媒体工具（Electron 桌面端）</span><span class="pr">山西资海 · 独立开发</span></div>
+      <div class="row"><span class="k">项目描述</span><span class="v">面向运营人员的多平台内容自动发布工具：支持抖音、小红书、视频号的视频发布，以及百家号、腾讯内容开放平台、新浪头条、搜狐号、今日头条、网易号的图文自动授权与发布，打包为 Windows exe / macOS dmg。</span></div>
+      <div class="row"><span class="k">技术栈</span><span class="v stack">Electron、Vue、Chromium、Node.js</span></div>
+      <div class="row"><span class="k">职责产出</span><span class="v"></span></div>
+      <ul class="bul">
+        <li>从 0 到 1 主导架构设计与全部功能实现：基于 Electron 内置 Chromium，按 URL 自动注入脚本完成表单填写、图片 / 视频上传、立即或定时发布。</li>
+        <li>设计多账号独立 Session 与持久化方案，登录态重启不丢失；实现主窗口与子窗口双向通信及跨页面全局数据存储。</li>
+        <li>攻克持久化存储、注入脚本事件信任（isTrusted）、头条表单保存失败等难点，完成 exe / dmg 双平台打包。</li>
+        <li>全程结合 AI 编程助手完成方案调研与编码，大幅缩短交付周期。</li>
+      </ul>
+    </div>
+
+    <div class="proj">
+      <div class="proj-head"><span class="pn">AIGC 内容生产平台</span><span class="pr">山西资海 · 前端开发</span></div>
+      <div class="row"><span class="k">项目描述</span><span class="v">集素材库、数字人、视频拼剪、GEO 文章生成、AI 生图 / 生视频于一体的内容生产系统。</span></div>
+      <div class="row"><span class="k">技术栈</span><span class="v stack">Vue、Element UI、SCSS、Axios</span></div>
+      <div class="row"><span class="k">职责产出</span><span class="v"></span></div>
+      <ul class="bul">
+        <li>负责素材库、数字人两个模块的前端开发。</li>
+        <li>借助 AI 辅助重构 GEO 拓词工具：解决海量关键词全量展示与 5000 条上限之间的冲突，保证每个词可见且渲染性能可控。</li>
+      </ul>
+    </div>
+
+    <div class="proj">
+      <div class="proj-head"><span class="pn">太原市政法干部信息管理系统</span><span class="pr">山西硬汉 · 前端开发</span></div>
+      <div class="row"><span class="k">项目描述</span><span class="v">为太原市政法委开发的干部信息管理平台，覆盖公检法司全体干部的模糊 / 精确查询、列表与详情、组织架构查看、导出打印及数据分析。</span></div>
+      <div class="row"><span class="k">技术栈</span><span class="v stack">Vue 全家桶、Element UI、ECharts、Axios</span></div>
+      <div class="row"><span class="k">职责产出</span><span class="v"></span></div>
+      <ul class="bul">
+        <li>负责数据分析模块：基于 ECharts 完成多维度干部数据的可视化统计与分析。</li>
+        <li>完成查询、列表、详情等页面的功能实现、接口对接与数据渲染。</li>
+      </ul>
+    </div>
+
+    <div class="proj">
+      <div class="proj-head"><span class="pn">视频管家</span><span class="pr">山西资海 · 前端开发（独立负责）</span></div>
+      <div class="row"><span class="k">项目描述</span><span class="v">摄像头设备管理与监控内容查看系统。</span></div>
+      <div class="row"><span class="k">技术栈</span><span class="v stack">Vue、Element UI、SCSS、Axios、西瓜视频播放器（Xigua Player）</span></div>
+      <div class="row"><span class="k">职责产出</span><span class="v">独立负责前端开发：集成西瓜播放器解析并播放监控流，实现摄像头参数配置与远程控制。</span></div>
+    </div>
+
+    <div class="proj">
+      <div class="proj-head"><span class="pn">12110 数据接口系统</span><span class="pr">山西硬汉 · 前端开发</span></div>
+      <div class="row"><span class="k">项目描述</span><span class="v">分省级 / 市级两个子系统，提供签名配置管理、IP 地址管理、访问测试等功能。</span></div>
+      <div class="row"><span class="k">技术栈</span><span class="v stack">Vue、Element UI、SCSS、Axios</span></div>
+      <div class="row"><span class="k">职责产出</span><span class="v">负责省级子系统全部页面开发与功能实现，完成接口对接与动态数据渲染。</span></div>
+    </div>
+
+    <div class="proj">
+      <div class="proj-head"><span class="pn">Sherlly Assistant（个人项目 · 四端全栈）</span><span class="pr">个人项目 · 独立开发</span></div>
+      <div class="row"><span class="k">项目描述</span><span class="v">个人任务提醒助手：支持周期提醒、提醒时间与重要程度设置、每日总结、网站账号密码记录，覆盖 Web、Windows 桌面端、Android 手机端。</span></div>
+      <div class="row"><span class="k">技术栈</span><span class="v stack">React（JSX）、Vite、Electron、Expo（React Native）、Cloudflare Workers、Durable Objects、KV、GitHub Pages、GitHub Actions</span></div>
+      <div class="row"><span class="k">职责产出</span><span class="v"></span></div>
+      <ul class="bul">
+        <li>独立完成需求梳理、架构设计与多端实现：Cloudflare Workers 提供 Serverless API，Durable Objects 持久化用户数据；Web 端托管于 GitHub Pages，Electron 与 Expo 客户端复用同一套接口。</li>
+        <li>通过 GitHub Actions 实现 push 自动构建部署；搭建 Pages 代理层解决 API 网络可达性问题。</li>
+        <li>全程以 AI 编程助手协作开发，实践「需求拆解 → AI 生成 → 人工验证」的高效工作流。</li>
+      </ul>
+    </div>
+
+    <div class="proj">
+      <div class="proj-head"><span class="pn">官网 / 落地页 / H5 / 小程序类项目</span><span class="pr">山西资海 · 前端开发</span></div>
+      <ul class="bul" style="margin-left:0">
+        <li><b>资海云官网及旗下官网、产品落地页：</b>HTML / CSS / JS、jQuery、Swiper、animate.css；完成页面布局、响应式改造与 Ajax 数据对接。</li>
+        <li><b>云经理 App 内嵌 H5：</b>申请、审批与详情展示页面；与原生 App 交互实现打卡、文件上传与文件预览（PHP 模板 + HTML / CSS）。</li>
+        <li><b>餐饮小程序：</b>uni-app；点菜推荐、自定义菜单、下单及返利活动页面开发与功能迭代。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>自我评价</h2>
+    <ul class="eval">
+      <li>7 年前端开发经验，技术路径从 jQuery → Vue → Electron / Serverless 持续演进，从政府级数据大屏到企业 SaaS 中后台均有完整交付经验。</li>
+      <li>具备独立负责项目的能力：需求沟通、设计稿还原、接口联调、上线维护全流程闭环，多个项目为独立开发交付。</li>
+      <li>积极拥抱 AI 编程工具并将其融入日常开发流程，在提升效率的同时保持对技术方案与代码质量的把控；注重团队协作，善于总结复盘。</li>
+    </ul>
+  </section>
+
+</div>
+</body>
+</html>

@@ -81,7 +81,7 @@ export const works: Work[] = [
     kicker: 'Electron 桌面工具 · 参与开发',
     title: '自动发布媒体工具',
     period: '山西资海',
-    summary: '给运营同事做的多平台内容自动发布工具，我参与了前端界面与业务逻辑开发，Electron 底层架构由 AI 工具协作完成。',
+    summary: '给运营团队做的内容分发工具，把人工 30 分钟的跨平台发布缩短到 3 分钟，覆盖抖音、小红书、视频号等 9 个平台。我参与了前端界面与业务逻辑开发，Electron 底层架构由 AI 工具协作完成。',
     highlights: [
       '负责前端界面开发：Vue 实现表单配置、素材管理与发布列表。',
       '理解 Electron 的多窗口通信与 Session 持久化机制。',
@@ -122,6 +122,22 @@ export const works: Work[] = [
     stack: ['Vue', 'Element UI', 'ECharts', 'SCSS'],
     image: null,
     imageAlt: '情指大数据平台大屏截图',
+    links: [],
+  },
+  {
+    slug: 'miniprogram-dining',
+    kicker: 'uni-app 小程序 · 参与开发',
+    title: '餐饮点餐小程序',
+    period: '山西资海',
+    summary: '基于 uni-app 开发的餐饮小程序，支持菜品推荐、自定义菜单、在线下单和返利活动。我参与了功能迭代和 bug 修复。',
+    highlights: [
+      '参与菜品推荐、自定义菜单、订单流程等功能模块的开发与维护。',
+      '修复跨端兼容性问题，优化小程序性能和用户体验。',
+      '理解 uni-app 的跨端编译机制和微信小程序 API。',
+    ],
+    stack: ['uni-app', '微信小程序', 'Vue', 'SCSS'],
+    image: null,
+    imageAlt: '餐饮点餐小程序截图',
     links: [],
   },
 ];

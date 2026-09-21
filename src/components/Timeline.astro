@@ -1,0 +1,60 @@
+---
+import { journey } from '../data/site';
+---
+<ol class="timeline">
+  {journey.map((m) => (
+    <li class="timeline__item">
+      <span class="timeline__period">{m.period}</span>
+      <div class="timeline__body">
+        <h3>{m.title}<span class="timeline__org">{m.org}</span></h3>
+        <p>{m.text}</p>
+      </div>
+    </li>
+  ))}
+</ol>
+
+<style>
+  .timeline { margin: 0; padding: 0; list-style: none; }
+  .timeline__item {
+    display: grid;
+    grid-template-columns: 180px minmax(0, 1fr);
+    gap: 32px;
+    padding: 28px 0;
+    border-top: 1px solid var(--han-color-border);
+  }
+  .timeline__item:last-child { border-bottom: 1px solid var(--han-color-border); }
+  .timeline__period {
+    position: relative;
+    padding-left: 22px;
+    font-family: var(--han-font-kai);
+    font-size: 16px;
+    letter-spacing: .06em;
+    color: var(--han-color-accent-text);
+  }
+  .timeline__period::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: .55em;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--han-color-accent-control);
+    box-shadow: 0 0 0 4px var(--han-color-bg);
+  }
+  h3 { margin: 0 0 8px; font-size: 20px; line-height: 1.4; letter-spacing: .06em; }
+  .timeline__org {
+    display: inline-block;
+    margin-left: 14px;
+    font-family: var(--han-font-sans);
+    font-size: 14px;
+    letter-spacing: 0;
+    color: var(--han-color-text-secondary);
+  }
+  p { margin: 0; color: var(--han-color-text-secondary); font-size: 15px; line-height: 1.9; }
+
+  @media (max-width: 640px) {
+    .timeline__item { grid-template-columns: 1fr; gap: 8px; padding: 22px 0; }
+    .timeline__org { display: block; margin: 4px 0 0; }
+  }
+</style>

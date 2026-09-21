@@ -1,0 +1,217 @@
+/* ============================================================
+ * 汉 · 组件样式 (Components)
+ * 所有组件使用 --han- 设计令牌
+ * 依赖：tokens.css + base.css
+ * ============================================================ */
+
+
+/* Trimmed copy: only the ink divider and stamp sections are kept for this site. */
+
+/* ============================================================
+ * 5. 水墨分割线 (Ink Divider)
+ * 毛笔笔触效果的分割线。
+ * 场景：章节分隔、内容区分。
+ * ============================================================ */
+.han-divider-ink {
+  position: relative;
+  height: 24px;
+  margin: var(--han-space-7) 0;
+  border: none;
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--han-space-4);
+}
+
+.han-divider-ink::before,
+.han-divider-ink::after {
+  content: "";
+  flex: 1;
+  max-width: 40%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--han-color-ink-400) 10%,
+    var(--han-color-ink-500) 50%,
+    var(--han-color-ink-400) 90%,
+    transparent 100%
+  );
+  border-radius: 50%;
+  filter: blur(0.5px);
+}
+
+.han-divider-ink > .han-divider-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--han-color-ink-600);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px var(--han-color-paper-100),
+              0 0 0 4px var(--han-color-ink-300);
+}
+
+/* 带印章装饰的分割线 */
+.han-divider-ink--seal > .han-divider-dot {
+  width: 28px;
+  height: 28px;
+  background: var(--han-color-accent-control);
+  color: var(--han-color-on-accent);
+  border-radius: var(--han-radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--han-font-kai);
+  font-size: var(--han-fs-xs);
+  font-weight: var(--han-title-weight, var(--han-fw-bold));
+  letter-spacing: 0;
+  box-shadow: var(--han-shadow-seal);
+  transform: rotate(-3deg);
+}
+
+/* 毛笔墨痕不对称分割线 */
+.han-divider-ink--brush {
+  height: 32px;
+}
+
+.han-divider-ink--brush::before {
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--han-color-ink-700) 8%,
+    var(--han-color-ink-600) 45%,
+    var(--han-color-ink-700) 85%,
+    transparent 100%
+  );
+  filter: blur(0.8px);
+  border-radius: 50%;
+}
+
+.han-divider-ink--brush::after {
+  height: 1px;
+  opacity: 0.4;
+  margin-top: 8px;
+  filter: blur(1px);
+}
+
+/* 双分割线（印章居中型） */
+.han-divider-ink--double::before,
+.han-divider-ink--double::after {
+  height: 1px;
+}
+
+
+/* ============================================================
+ * 6. 印章 (Stamp)
+ * 红色方形印章组件，可用于署名或强调。
+ * 场景：文章署名、品牌印章、认证标记。
+ * ============================================================ */
+.han-stamp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--han-stamp-size);
+  height: var(--han-stamp-size);
+  background-color: var(--han-stamp-bg);
+  color: var(--han-stamp-text);
+  font-family: var(--han-font-kai);
+  font-size: var(--han-stamp-font);
+  font-weight: var(--han-title-weight, var(--han-fw-bold));
+  letter-spacing: 0;
+  line-height: 1;
+  border-radius: var(--han-stamp-border-radius);
+  box-shadow: var(--han-shadow-seal);
+  transform: rotate(-5deg);
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+  padding: var(--han-space-2);
+  text-align: center;
+  transition: transform var(--han-duration-slow) var(--han-ease-spring);
+}
+
+.han-stamp:hover {
+  transform: rotate(-5deg) scale(1.1);
+}
+
+/* 印章斑驳效果（通过伪元素模拟岁月痕迹） */
+.han-stamp::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.15) 0%, transparent 25%),
+    radial-gradient(circle at 70% 60%, rgba(0,0,0,0.1) 0%, transparent 20%),
+    radial-gradient(circle at 50% 80%, rgba(255,255,255,0.08) 0%, transparent 15%);
+  pointer-events: none;
+}
+
+/* 印章文字排版（竖排两字或四字） */
+.han-stamp--2char {
+  font-size: calc(var(--han-stamp-font) * 1.4);
+  flex-direction: column;
+  gap: 2px;
+}
+
+.han-stamp--4char {
+  font-size: calc(var(--han-stamp-font) * 1.1);
+  flex-direction: column;
+  gap: 1px;
+}
+
+.han-stamp--multi {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  letter-spacing: var(--han-space-1);
+  font-size: calc(var(--han-stamp-font) * 0.9);
+}
+
+/* 印章带边框 */
+.han-stamp--border {
+  border: var(--han-border-width-2) solid var(--han-color-gold-500);
+  background: var(--han-color-vermilion-500);
+}
+
+/* 印泥效果（印章底部阴影） */
+.han-stamp::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 10%;
+  right: 10%;
+  height: 6px;
+  background: radial-gradient(ellipse at center, rgba(192, 57, 43, 0.35) 0%, transparent 70%);
+  filter: blur(3px);
+  pointer-events: none;
+}
+
+/* 大号印章 */
+.han-stamp--lg {
+  --han-stamp-size: 72px;
+  --han-stamp-font: 24px;
+}
+
+/* 小号印章 */
+.han-stamp--sm {
+  --han-stamp-size: 36px;
+  --han-stamp-font: 12px;
+}
+
+/* 方形印章（正正方方，不倒角） */
+.han-stamp--square {
+  --han-stamp-border-radius: 0;
+}
+
+/* 印章组（用于署名） */
+.han-stamp-group {
+  display: inline-flex;
+  gap: var(--han-space-3);
+  align-items: flex-end;
+}
+
+
+
+@media (prefers-reduced-motion: reduce) {
+  .han-stamp { transform: none !important; }
+}

@@ -17,7 +17,6 @@ export interface Project {
 export const profile = {
   name: '赵雪丽',
   title: '前端开发工程师 · 7 年经验',
-  phone: '15333030204',
   email: 'z1253108690@126.com',
   location: '太原',
   education: '山西省财政税务专科学校 · 电子商务技术 · 大专',

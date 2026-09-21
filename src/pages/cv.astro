@@ -1,0 +1,76 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import Header from '../components/Header.astro';
+import Section from '../components/Section.astro';
+import JobItem from '../components/JobItem.astro';
+import ProjectItem from '../components/ProjectItem.astro';
+import { profile, skills, tags, jobs, projects, evaluation } from '../data/resume';
+
+const title = `简历 · ${profile.name} - ${profile.title}`;
+const description = `${profile.name}，${profile.title}，${profile.target}。精通 Vue 全家桶、ECharts 数据大屏、Electron 桌面端与 uni-app 小程序开发。`;
+---
+<SiteLayout title={title} description={description} current="cv/">
+  <div class="cv">
+    <Header />
+
+    <Section id="skills" title="专业技能">
+      <ul class="tags">
+        {tags.map((t) => <li>{t}</li>)}
+      </ul>
+      <ul class="bul skills">
+        {skills.map((s) => <li><b>{s.label}：</b>{s.text}</li>)}
+      </ul>
+    </Section>
+
+    <Section id="experience" title="工作经历">
+      {jobs.map((job) => <JobItem job={job} />)}
+    </Section>
+
+    <Section id="projects" title="项目经历">
+      {projects.map((p) => <ProjectItem project={p} />)}
+    </Section>
+
+    <Section id="about" title="自我评价">
+      <ul class="bul">
+        {evaluation.map((e) => <li>{e}</li>)}
+      </ul>
+    </Section>
+  </div>
+</SiteLayout>
+
+<style is:global>
+  /* 简历组件沿用旧变量名，这里映射到 Han 的 song 主题 token */
+  .cv {
+    --accent: var(--han-color-accent-text);
+    --accent-light: var(--han-color-bg-elevated);
+    --text: var(--han-color-text-primary);
+    --muted: var(--han-color-text-secondary);
+    --line: var(--han-color-border);
+    --card: var(--han-color-bg-surface);
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px 64px;
+    font-family: var(--han-font-sans);
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text);
+  }
+  .cv h1, .cv h2, .cv h3 { font-family: var(--han-font-sans); letter-spacing: 0; font-weight: 700; }
+  .cv p { margin-bottom: 0; }
+  .cv ul { list-style: none; padding-inline-start: 0; }
+  .cv a { border-bottom: 0; }
+  .cv .card { background: var(--card); border: 1px solid var(--line); border-radius: 4px; }
+  .cv .bul li { position: relative; padding-left: 16px; margin-bottom: 6px; }
+  .cv .bul li::before { content: ""; position: absolute; left: 2px; top: 11px; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+  .cv .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+  .cv .tags li { background: var(--card); color: var(--text); border: 1px solid var(--line); font-size: 13px; padding: 2px 10px; border-radius: 2px; line-height: 22px; }
+  .cv .skills b { color: var(--text); }
+
+  @media print {
+    body { background: #fff !important; background-image: none !important; }
+    .site-nav, .site-footer, .han-skip-link, .no-print { display: none !important; }
+    .cv { max-width: none; padding: 0; font-size: 11pt; color: #2b2f36; --accent: #1f4e79; --muted: #6b7280; --line: #d9dee5; --card: #fff; --accent-light: #e8eff7; }
+    .cv .card { border: 0; border-radius: 0; }
+    .cv a { color: inherit; }
+  }
+</style>

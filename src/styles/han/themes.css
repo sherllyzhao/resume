@@ -1,0 +1,85 @@
+/* ============================================================
+ * 汉 · 主题系统 (Theme System)
+ * 所有主题都是面向现代界面的视觉诠释，不是历史复原。
+ *
+ * 使用方式：
+ *   <html data-theme="ink">  水墨主题
+ *   <html data-theme="landscape">  青绿山水
+ *   <html data-theme="porcelain">  青花瓷
+ *   <html data-theme="dunhuang">  敦煌壁画
+ *   <html data-theme="imperial">  宫廷金
+ *   <html data-theme="wuxia">  武侠玄墨
+ *   <html data-theme="tea">  当代茶空间
+ *
+ * 也可自定义：覆盖以下变量即可
+ *   --han-color-bg
+ *   --han-color-accent
+ *   --han-seal-bg
+ *   ...
+ * ============================================================ */
+
+/* Trimmed copy: only the song theme is kept for this site. */
+
+/* ============================================================
+ * 宋·文人极简 (Song)
+ * 时代气质：文人审美巅峰，极简、内敛、高级感
+ * 核心色彩：天青 #87A6B3 / 粉青 #A7BFC6 / 月白 #E0E4E0 / 墨色 #3A3A3A / 藕丝 #C9B8A8 / 艾绿 #8BA78B
+ * 字体：瘦金体（宋徽宗，刚劲清秀）、仿宋体（笔画纤细，横轻竖重）
+ * 纹样：冰裂纹（哥窑）、缠枝莲（纤细清雅）、花鸟小品、山水意境、几何纹
+ * 材质质感：汝窑瓷器（温润如玉、哑光）、宣纸（柔软半透）、丝（细密光泽）、竹（清瘦）
+ * 适用：现代产品、极简品牌、艺术
+ * ============================================================ */
+[data-theme='song'] {
+  --han-color-bg:              #EBEDE6;
+  --han-color-bg-surface:      #F3F5F0;
+  --han-color-bg-elevated:     #DDDFD8;
+  --han-color-text-primary:    #3A3A3A;
+  --han-color-text-secondary:  #5F635D;
+  --han-color-text-tertiary:   #979B93;
+  --han-color-border:          #C0C4BD;
+  --han-color-accent:          #87A6B3;
+  --han-color-accent-decorative: #87A6B3;
+  --han-color-accent-text:       #596E76;
+  --han-color-accent-control:    #596E76;
+  --han-color-on-accent:         #F3F5F0;
+  --han-focus-ring:              #3A3A3A;
+
+  /* 宋：极简如一枚玉扣，天青色，无边框或极细边框 */
+  --han-seal-bg:               transparent;
+  --han-seal-bg-hover:         #EBEDE6;
+  --han-seal-text:             #3A3A3A;
+  --han-seal-border:           #87A6B3;
+  --han-seal-size:             44px;
+  --han-seal-radius:           2px;
+  --han-seal-tilt:             0deg;
+
+  --han-stamp-bg:              #3A3A3A;
+  --han-stamp-text:            #F3F5F0;
+
+  --han-scroll-roller:         #6A6D68;
+  --han-scroll-rivet:          #A7BFC6;
+
+  --han-nav-bg:                rgba(235, 237, 230, 0.88);
+  --han-nav-text:              #5F635D;
+  --han-nav-text-hover:        #3A3A3A;
+  --han-nav-ink-color:         #3A3A3A;
+
+  --han-color-gold-500:        #A7BFC6;
+
+  /* 宋字体：瘦金/仿宋，刚劲清秀 */
+  --han-font-kai: 'STFangsong', 'FangSong', 'STZhongSong', 'KaiTi', serif;
+  --han-font-serif: 'STFangsong', 'FangSong', 'STSong', serif;
+  --han-font-song: 'STFangsong', 'FangSong', 'SimSun', serif;
+  --han-title-spacing: 0.2em;
+  --han-title-weight: 400;
+
+  /* 宋布局：极致留白、极简 */
+  --han-section-gap: 160px;
+  --han-content-max-width: 880px;
+  --han-border-width: 1px;
+
+  /* 宋背景：汝窑冰裂纹 + 宣纸质感 */
+  --han-bg-pattern:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420' viewBox='0 0 420 420'%3E%3Cfilter id='ruyao'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='1' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.92 0 0 0 0 0.93 0 0 0 0 0.89 0 0 0 0.03 0'/%3E%3C/filter%3E%3Crect width='420' height='420' filter='url(%23ruyao)'/%3E%3Cg opacity='0.06' stroke='%2387A6B3' stroke-width='0.3' fill='none'%3E%3Cpath d='M30 80 L90 150 L50 220 L130 300 L70 380'/%3E%3Cpath d='M210 30 L270 110 L230 190 L310 270 L250 350'/%3E%3Cpath d='M370 60 L330 140 L390 220 L350 300 L380 390'/%3E%3Cpath d='M90 30 L60 100 L100 180 L80 260'/%3E%3Cpath d='M340 40 L360 120 L330 200'/%3E%3C/g%3E%3Cg opacity='0.04' stroke='%233A3A3A' stroke-width='0.2'%3E%3Cline x1='0' y1='120' x2='420' y2='124'/%3E%3Cline x1='0' y1='280' x2='420' y2='278'/%3E%3C/g%3E%3C/svg%3E");
+}
+

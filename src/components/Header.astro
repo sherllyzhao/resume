@@ -8,7 +8,6 @@ const base = import.meta.env.BASE_URL;
     <h1>{profile.name}</h1>
     <p class="title">{profile.title}</p>
     <ul class="meta">
-      <li><a href={`tel:${profile.phone}`}>{profile.phone}</a></li>
       <li><a href={`mailto:${profile.email}`}>{profile.email}</a></li>
       <li>{profile.location}</li>
       <li><a href={profile.github} target="_blank" rel="noopener">github.com/sherllyzhao</a></li>
@@ -16,8 +15,7 @@ const base = import.meta.env.BASE_URL;
     <p class="edu">{profile.education}</p>
   </div>
   <div class="actions no-print">
-    <a class="btn primary" href={`${base}/resume.pdf`} download="赵雪丽-前端开发-7年.pdf">下载 PDF</a>
-    <button class="btn" type="button" onclick="window.print()">打印</button>
+    <button class="btn primary" type="button" onclick="window.print()">打印</button>
   </div>
 </header>
 

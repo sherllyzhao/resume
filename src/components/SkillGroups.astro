@@ -1,0 +1,49 @@
+---
+import { skillGroups } from '../data/site';
+---
+<div class="skills">
+  {skillGroups.map((g) => (
+    <section class="skills__group">
+      <h3>{g.name}</h3>
+      <ul>
+        {g.items.map((item) => <li>{item}</li>)}
+      </ul>
+    </section>
+  ))}
+</div>
+
+<style>
+  .skills {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    border-block: 1px solid var(--han-color-border);
+  }
+  .skills__group { padding: 28px 24px 30px; }
+  .skills__group + .skills__group { border-left: 1px solid var(--han-color-border); }
+  h3 {
+    margin: 0 0 16px;
+    font-size: 18px;
+    letter-spacing: .14em;
+    color: var(--han-color-accent-text);
+  }
+  ul { margin: 0; padding: 0; list-style: none; }
+  li {
+    position: relative;
+    padding: 5px 0 5px 14px;
+    color: var(--han-color-text-primary);
+    font-family: var(--han-font-sans);
+    font-size: 14.5px;
+  }
+  li::before { content: ""; position: absolute; left: 0; top: 14px; width: 4px; height: 4px; background: var(--han-color-accent-control); }
+
+  @media (max-width: 860px) {
+    .skills { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .skills__group:nth-child(3) { border-left: 0; }
+    .skills__group:nth-child(n + 3) { border-top: 1px solid var(--han-color-border); }
+  }
+  @media (max-width: 560px) {
+    .skills { grid-template-columns: 1fr; }
+    .skills__group { padding: 22px 4px; }
+    .skills__group + .skills__group { border-left: 0; border-top: 1px solid var(--han-color-border); }
+  }
+</style>

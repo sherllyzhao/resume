@@ -1,50 +1,115 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Section from '../components/Section.astro';
-import JobItem from '../components/JobItem.astro';
-import ProjectItem from '../components/ProjectItem.astro';
-import { profile, skills, tags, jobs, projects, evaluation } from '../data/resume';
+import SiteLayout from '../layouts/SiteLayout.astro';
+import Hero from '../components/Hero.astro';
+import WorkCard from '../components/WorkCard.astro';
+import SkillGroups from '../components/SkillGroups.astro';
+import Timeline from '../components/Timeline.astro';
+import { site, works, about, contact } from '../data/site';
 
-const title = `${profile.name} - ${profile.title}`;
-const description = `${profile.name}，${profile.title}，${profile.target}。精通 Vue 全家桶、ECharts 数据大屏、Electron 桌面端与 uni-app 小程序开发。`;
+const base = import.meta.env.BASE_URL;
+const title = `${site.name} · ${site.role}`;
 ---
-<Layout title={title} description={description}>
-  <main class="container">
-    <Header />
+<SiteLayout title={title} description={site.description}>
+  <Hero />
 
-    <Section id="skills" title="专业技能">
-      <ul class="tags">
-        {tags.map((t) => <li>{t}</li>)}
-      </ul>
-      <ul class="bul skills">
-        {skills.map((s) => <li><b>{s.label}：</b>{s.text}</li>)}
-      </ul>
-    </Section>
+  <section class="site-section site-section--surface" id="works" aria-labelledby="works-title">
+    <div class="site-shell">
+      <div class="site-heading">
+        <h2 id="works-title">几件做得比较完整的东西</h2>
+        <p>从个人的全栈小产品，到公司里独立负责的桌面工具和中后台，挑了四个能讲清楚来龙去脉的。</p>
+      </div>
+      {works.map((w, i) => <WorkCard work={w} index={i} />)}
+    </div>
+  </section>
 
-    <Section id="experience" title="工作经历">
-      {jobs.map((job) => <JobItem job={job} />)}
-    </Section>
+  <div class="han-divider-ink han-divider-ink--seal site-divider" role="separator">
+    <span class="han-divider-dot" aria-hidden="true">{site.seal}</span>
+  </div>
 
-    <Section id="projects" title="项目经历">
-      {projects.map((p) => <ProjectItem project={p} />)}
-    </Section>
+  <section class="site-section" id="about" aria-labelledby="about-title">
+    <div class="site-shell about">
+      <div class="about__text">
+        <p class="site-kicker">About</p>
+        <h2 id="about-title">{about.title}</h2>
+        {about.paragraphs.map((p) => <p>{p}</p>)}
+      </div>
+      <figure class="about__quote">
+        <span class="han-stamp han-stamp--lg" aria-hidden="true">言</span>
+        <blockquote>{about.quote}</blockquote>
+      </figure>
+    </div>
+  </section>
 
-    <Section id="about" title="自我评价">
-      <ul class="bul">
-        {evaluation.map((e) => <li>{e}</li>)}
-      </ul>
-    </Section>
+  <section class="site-section site-section--surface" id="skills" aria-labelledby="skills-title">
+    <div class="site-shell">
+      <div class="site-heading">
+        <h2 id="skills-title">平时用的工具</h2>
+        <p>按用途分了四组，越靠前的越熟。</p>
+      </div>
+      <SkillGroups />
+    </div>
+  </section>
 
-    <footer class="footer no-print">
-      © {new Date().getFullYear()} {profile.name} · 本站基于 Astro 构建，托管于 GitHub Pages
-    </footer>
-  </main>
-</Layout>
+  <section class="site-section" id="journey" aria-labelledby="journey-title">
+    <div class="site-shell">
+      <div class="site-heading">
+        <h2 id="journey-title">走过的路</h2>
+        <p>完整的项目清单和职责在<a href={`${base}/cv/`}>简历页</a>，这里只记节点。</p>
+      </div>
+      <Timeline />
+    </div>
+  </section>
+
+  <section class="site-shell contact" id="contact" aria-labelledby="contact-title">
+    <h2 id="contact-title">{contact.title}</h2>
+    <p>{contact.text}</p>
+    <div class="contact__actions">
+      <a class="site-button" href={`mailto:${site.email}`}>{contact.cta}</a>
+      <a class="site-button--quiet" href={site.github} target="_blank" rel="noopener">{site.githubLabel}</a>
+    </div>
+  </section>
+</SiteLayout>
 
 <style>
-  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
-  .tags li { background: var(--accent-light); color: var(--accent); font-size: 13px; padding: 2px 10px; border-radius: 999px; line-height: 22px; }
-  .skills b { color: #111; }
-  .footer { text-align: center; color: var(--muted); font-size: 13px; margin-top: 32px; }
+  .about {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr);
+    gap: clamp(36px, 6vw, 80px);
+    align-items: start;
+  }
+  .about h2 { margin: 0 0 22px; font-size: clamp(30px, 4.5vw, 46px); line-height: 1.2; }
+  .about__text p:not(.site-kicker) { margin: 0 0 18px; color: var(--han-color-text-secondary); font-size: 16px; line-height: 1.95; }
+  .about__quote {
+    display: grid;
+    grid-template-columns: 72px minmax(0, 1fr);
+    gap: 24px;
+    align-items: start;
+    margin: 0;
+    padding: clamp(28px, 4vw, 44px);
+    border: 1px solid var(--han-color-border);
+    background: var(--han-color-bg-surface);
+  }
+  .about__quote blockquote {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    font-family: var(--han-font-kai);
+    font-size: clamp(20px, 2.4vw, 26px);
+    line-height: 1.7;
+    color: var(--han-color-text-primary);
+  }
+  .about__quote blockquote::before, .about__quote blockquote::after { content: none; }
+
+  .contact { padding: clamp(72px, 11vw, 140px) 0; text-align: center; }
+  .contact h2 { max-width: 760px; margin: 0 auto; font-size: clamp(34px, 5.5vw, 60px); line-height: 1.2; }
+  .contact p { max-width: 580px; margin: 22px auto 32px; color: var(--han-color-text-secondary); font-size: 16px; line-height: 1.9; }
+  .contact__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+
+  @media (max-width: 860px) {
+    .about { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 560px) {
+    .about__quote { grid-template-columns: 1fr; gap: 16px; }
+  }
 </style>

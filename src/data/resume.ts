@@ -136,14 +136,15 @@ export const projects: Project[] = [
     bullets: ['负责省级子系统全部页面开发与功能实现，完成接口对接与动态数据渲染。'],
   },
   {
-    name: 'Sherlly Assistant（个人项目 · 四端全栈）',
-    meta: '个人项目 · 独立开发',
-    desc: '个人任务提醒助手：支持周期提醒、提醒时间与重要程度设置、每日总结、网站账号密码记录，覆盖 Web、Windows 桌面端、Android 手机端。',
-    stack: 'React（JSX）、Vite、Electron、Expo（React Native）、Cloudflare Workers、Durable Objects、KV、GitHub Pages、GitHub Actions',
+    name: 'Sherlly Assistant（个人项目）',
+    meta: '个人项目 · Web + 桌面端',
+    desc: '个人任务提醒助手：支持周期提醒、提醒时间与重要程度设置、每日总结、网站账号密码记录，Web 端已上线，桌面端基于 Electron 实现。',
+    stack: 'React（JSX）、Vite、Electron、Cloudflare Workers、Durable Objects、KV、GitHub Pages',
     bullets: [
-      '独立完成需求梳理、架构设计与多端实现：Cloudflare Workers 提供 Serverless API，Durable Objects 持久化用户数据；Web 端托管于 GitHub Pages，Electron 与 Expo 客户端复用同一套接口。',
+      '独立完成需求设计与前端实现：Cloudflare Workers 提供 Serverless API，Durable Objects 持久化用户数据；Web 端托管于 GitHub Pages。',
+      '借助 AI 编程助手实现 Electron 桌面端，理解主进程与渲染进程通信机制。',
       '通过 GitHub Actions 实现 push 自动构建部署；搭建 Pages 代理层解决 API 网络可达性问题。',
-      '全程以 AI 编程助手协作开发，实践「需求拆解 → AI 生成 → 人工验证」的高效工作流。',
+      '实践「需求拆解 → AI 生成 → 人工验证」的高效工作流。',
     ],
   },
   {
